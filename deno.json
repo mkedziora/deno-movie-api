@@ -1,6 +1,6 @@
 {
     "lint": {
-      "include": ["src/"],
+      "include": ["src/", "main.ts"],
       "exclude": ["data/"]
     },
     "fmt": {
@@ -9,7 +9,7 @@
       "indentWidth": 4,
       "singleQuote": true,
       "proseWrap": "preserve",
-      "include": ["src/"],
+      "include": ["src/", "main.ts"],
       "exclude": ["data/"]
     },
     "lock": false,
