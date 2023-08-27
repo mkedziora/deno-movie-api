@@ -15,11 +15,11 @@
     "lock": false,
     "nodeModulesDir": true,
     "test": {
-      "include": ["src/"],
-      "exclude": ["data/"]
+      "include": ["tests/"]
     },
     "tasks": {
       "start": "deno run main.ts",
-      "dev": "deno run --watch -A main.ts"
+      "dev": "deno run --watch -A main.ts",
+      "test": "deno test --allow-read"
     }
   }

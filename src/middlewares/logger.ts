@@ -1,5 +1,3 @@
-// @deno-types="npm:@types/express@^4.17"
-
 export const incomingRequestLogger = (req, _res, next) => {
 	console.log('incoming_request', {
 		method: req.method,
