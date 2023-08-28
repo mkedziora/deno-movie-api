@@ -6,6 +6,8 @@ import { incomingRequestLogger } from './src/middlewares/logger.ts';
 
 const app = express();
 
+app.use(express.json()); // parse body as JSON
+
 app.use(incomingRequestLogger);
 
 app.use(router);

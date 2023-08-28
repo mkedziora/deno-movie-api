@@ -1,4 +1,5 @@
-import { getMovies, getRandomMovie } from '../services/movie.ts';
+import { validationResult } from 'npm:express-validator@^7.0.1';
+import { getMovies, getRandomMovie, postMovie } from '../services/movie.ts';
 import { parseGenres } from '../utils/params.ts';
 
 const getMovieController = async (req, res, next) => {
@@ -17,4 +18,19 @@ const getMovieController = async (req, res, next) => {
 	}
 };
 
-export { getMovieController };
+const postMovieController = async (req, res, next) => {
+	try {
+		const errors = validationResult(req);
+		if (!errors.isEmpty()) {
+			return res.status(400).json({
+				errors: errors.array(),
+			});
+		}
+		res.status(201).json(await postMovie(req.body));
+	} catch (err) {
+		console.error('Error while posting movie', err.message);
+		next(err);
+	}
+};
+
+export { getMovieController, postMovieController };
